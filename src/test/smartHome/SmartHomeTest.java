@@ -23,4 +23,14 @@ class SmartHomeTest {
 
         assertTrue(bulbSpy.turnOn_wasCalled());
     }
+
+    @Test
+    void turnBulbOff_whenSwitchIsOff() {
+        SmartHome smartHome = new SmartHome();
+        BulbSpy bulbSpy = new BulbSpy();
+        SwitchOffStub aSwitch = new SwitchOffStub();
+        smartHome.run(bulbSpy, aSwitch);
+
+        assertTrue(bulbSpy.turnOff_wasCalled());
+    }
 }
